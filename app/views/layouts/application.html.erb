@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <base href="/">
     <title>WebpackRails</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <%= javascript_include_tag *webpack_asset_paths("application") %>
 
+<%#= javascript_include_tag *webpack_asset_paths('application', extension: 'js') %>
+<%#= stylesheet_link_tag *webpack_asset_paths('application', extension: 'css') %>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
   <body>
+    <my-app>Loading...</my-app>
     <%= yield %>
   </body>
 </html>
